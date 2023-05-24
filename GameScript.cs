@@ -7,11 +7,13 @@ public class GameScript : MonoBehaviour
 {
     private int spriteIndex = -1;
     private int[,] winBoard = new int [3, 3];
+    private int drawCounter;
 
 
     private void Start()
     {
         setBoard();
+        drawCounter = 0;
     }
 
     private void setBoard()
@@ -136,7 +138,13 @@ public class GameScript : MonoBehaviour
     public int playerTurn()
     {
         spriteIndex++;
+        drawCounter++;
         return spriteIndex % 2;
+    }
+
+    public int getDrawCounter()
+    {
+        return drawCounter;
     }
 
     public void fillBoard(GameObject spot, int index)

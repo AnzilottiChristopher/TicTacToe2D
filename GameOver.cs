@@ -14,4 +14,9 @@ public static class GameOver
     {
         SceneManager.LoadScene("PlayerOWin");
     }
+
+    public static void draw()
+    {
+        SceneManager.LoadScene("Draw");
+    }
 }

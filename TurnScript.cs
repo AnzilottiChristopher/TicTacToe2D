@@ -9,10 +9,12 @@ public class TurnScript : MonoBehaviour
    public Sprite[] images;
    private GameObject gameBoard;
    private bool unplayed = true;
+   //private int drawCounter;
 
    private void Start()
    {
       spriteRenderer.sprite = null;
+      //drawCounter = 0;
    }
 
    private void OnMouseDown()
@@ -21,6 +23,8 @@ public class TurnScript : MonoBehaviour
       {
          int index = gameBoard.GetComponent<GameScript>().playerTurn();
          spriteRenderer.sprite = images[index];
+         // drawCounter++;
+         // Debug.Log(drawCounter);
          GameObject spot = gameObject;
          gameBoard.GetComponent<GameScript>().fillBoard(spot, index);
          string winner = gameBoard.GetComponent<GameScript>().winCondition();
@@ -32,6 +36,10 @@ public class TurnScript : MonoBehaviour
          else if (winner == "o")
          {
             GameOver.playerOWin();
+         }
+         else if (gameBoard.GetComponent<GameScript>().getDrawCounter() == 9)
+         {
+            GameOver.draw();
          }
          
          //Debug.Log(spot);
