@@ -21,6 +21,10 @@ public class TurnScript : MonoBehaviour
       {
          int index = gameBoard.GetComponent<GameScript>().playerTurn();
          spriteRenderer.sprite = images[index];
+         GameObject spot = gameObject;
+         gameBoard.GetComponent<GameScript>().fillBoard(spot, index);
+         
+         //Debug.Log(spot);
          unplayed = false;
       }
    }
