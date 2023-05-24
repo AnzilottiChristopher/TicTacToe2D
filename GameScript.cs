@@ -32,12 +32,12 @@ public class GameScript : MonoBehaviour
         
         //Debug.Log(winBoard.Length);
         //Loop checks horizontal
-        for (int index1 = 0; index1 < 3; index1++)
+        for (int index1 = 0; index1 < winBoard.GetLength(1); index1++)
         {
-            for (int index2 = 0; index2 < 3; index2++)
+            for (int index2 = 0; index2 < winBoard.GetLength(0); index2++)
             {
                 //Debug.Log(winBoard.GetLength(index1));
-                if (winBoard[index1, index2] == 0)
+                if (winBoard[index1, index2] == 0) 
                 {
                     xCounter++;
                 }
@@ -61,6 +61,18 @@ public class GameScript : MonoBehaviour
             oCounter = 0;
         }
         
+        if (xCounter == 3)
+        {
+            Debug.Log("Player X wins");
+            return true;
+        }
+        else if (oCounter == 3)
+        {
+            Debug.Log("Player O wins");
+            return true;
+        }
+
+
         //loop checks the vertical
         for (int index1 = 0; index1 < winBoard.GetLength(1); index1++)
         {

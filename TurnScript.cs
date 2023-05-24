@@ -27,6 +27,7 @@ public class TurnScript : MonoBehaviour
          if (winner)
          {
             Debug.Log("Game Over");
+            GameOver.playerXWin();
          }
          
          //Debug.Log(spot);
