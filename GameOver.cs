@@ -9,4 +9,9 @@ public static class GameOver
     {
         SceneManager.LoadScene("PlayerXWin");
     }
+
+    public static void playerOWin()
+    {
+        SceneManager.LoadScene("PlayerOWin");
+    }
 }

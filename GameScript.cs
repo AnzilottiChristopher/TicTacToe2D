@@ -24,7 +24,7 @@ public class GameScript : MonoBehaviour
             }
         }
     }
-    public bool winCondition()
+    public string winCondition()
     {
         //Initializing counters
         int xCounter = 0;
@@ -63,13 +63,13 @@ public class GameScript : MonoBehaviour
         
         if (xCounter == 3)
         {
-            Debug.Log("Player X wins");
-            return true;
+            //Debug.Log("Player X wins");
+            return "x";
         }
         else if (oCounter == 3)
         {
-            Debug.Log("Player O wins");
-            return true;
+            //Debug.Log("Player O wins");
+            return "o";
         }
 
 
@@ -116,19 +116,19 @@ public class GameScript : MonoBehaviour
 
         if (xCounter == 3)
         {
-            Debug.Log("Player X wins");
-            return true;
+            //Debug.Log("Player X wins");
+            return "x";
         }
         else if (oCounter == 3)
         {
-            Debug.Log("Player O wins");
-            return true;
+            //Debug.Log("Player O wins");
+            return "o";
         }
         else
         {
             xCounter = 0;
             oCounter = 0;
-            return false;
+            return "continue";
         }
         
     }
