@@ -17,6 +17,11 @@ public class TurnScript : MonoBehaviour
       //drawCounter = 0;
    }
 
+   private void OnEnable()
+   {
+      spriteRenderer.sprite = null;
+   }
+
    private void OnMouseDown()
    {
       if (unplayed)
