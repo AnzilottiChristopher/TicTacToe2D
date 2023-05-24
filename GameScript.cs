@@ -7,18 +7,36 @@ public class GameScript : MonoBehaviour
 {
     private int spriteIndex = -1;
     private int[,] winBoard = new int [3, 3];
-    
-    private bool winCondition()
+
+
+    private void Start()
+    {
+        setBoard();
+    }
+
+    private void setBoard()
+    {
+        for (int index1 = 0; index1 < 3; index1++)
+        {
+            for (int index2 = 0; index2 < 3; index2++)
+            {
+                this.winBoard[index1, index2] = 3;
+            }
+        }
+    }
+    public bool winCondition()
     {
         //Initializing counters
         int xCounter = 0;
         int oCounter = 0;
         
+        //Debug.Log(winBoard.Length);
         //Loop checks horizontal
-        for (int index1 = 0; index1 < winBoard.Length; index1++)
+        for (int index1 = 0; index1 < 3; index1++)
         {
-            for (int index2 = 0; index2 < winBoard.Length; index2++)
+            for (int index2 = 0; index2 < 3; index2++)
             {
+                //Debug.Log(winBoard.GetLength(index1));
                 if (winBoard[index1, index2] == 0)
                 {
                     xCounter++;
@@ -44,9 +62,9 @@ public class GameScript : MonoBehaviour
         }
         
         //loop checks the vertical
-        for (int index1 = 0; index1 < winBoard.Length; index1++)
+        for (int index1 = 0; index1 < winBoard.GetLength(1); index1++)
         {
-            for (int index2 = 0; index2 < winBoard.Length; index2++)
+            for (int index2 = 0; index2 < winBoard.GetLength(0); index2++)
             {
                 if (winBoard[index2, index1] == 0)
                 {
@@ -84,8 +102,14 @@ public class GameScript : MonoBehaviour
             oCounter = 3;
         }
 
-        if (xCounter == 3 || oCounter == 3)
+        if (xCounter == 3)
         {
+            Debug.Log("Player X wins");
+            return true;
+        }
+        else if (oCounter == 3)
+        {
+            Debug.Log("Player O wins");
             return true;
         }
         else

@@ -23,6 +23,11 @@ public class TurnScript : MonoBehaviour
          spriteRenderer.sprite = images[index];
          GameObject spot = gameObject;
          gameBoard.GetComponent<GameScript>().fillBoard(spot, index);
+         bool winner = gameBoard.GetComponent<GameScript>().winCondition();
+         if (winner)
+         {
+            Debug.Log("Game Over");
+         }
          
          //Debug.Log(spot);
          unplayed = false;
