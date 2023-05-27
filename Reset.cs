@@ -11,7 +11,7 @@ public class Reset : MonoBehaviour
         //SceneManager.UnloadSceneAsync("MainScene");
         if (gameObject.name == "Yes")
         {
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene("BigBoard");
         }
         else if (gameObject.name == "No")
         {
