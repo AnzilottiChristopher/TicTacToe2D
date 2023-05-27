@@ -17,6 +17,32 @@ public class BigBoard : MonoBehaviour
         }
         
     }
+    
+    public void SaveObjectState(SaveStates state)
+    {
+        // Convert the object state to JSON
+        string json = JsonUtility.ToJson(state);
+
+        // Save the JSON string to a file or PlayerPrefs
+        // Example using PlayerPrefs:
+        PlayerPrefs.SetString("ObjectState", json);
+    }
+    
+    public SaveStates LoadObjectState()
+    {
+        // Load the JSON string from the saved file or PlayerPrefs
+        string json = PlayerPrefs.GetString("ObjectState", string.Empty);
+
+        if (!string.IsNullOrEmpty(json))
+        {
+            // Convert the JSON string back to an ObjectState object
+            SaveStates state = JsonUtility.FromJson<SaveStates>(json);
+            return state;
+        }
+
+        // If no saved data found, return a default ObjectState object or null
+        return null;
+    }
 
     private void OnMouseDown()
     {

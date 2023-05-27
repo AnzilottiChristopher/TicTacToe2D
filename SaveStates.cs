@@ -2,7 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveStates 
+[System.Serializable]
+public class SaveStates
 {
-    
+    private int index;
+
+    public SaveStates(int index)
+    {
+        this.index = index;
+    }
+
+    public void setGameObject(int index)
+    {
+        this.index = index;
+    }
+
+    public int getGameObject()
+    {
+        return this.index;
+    }
 }
